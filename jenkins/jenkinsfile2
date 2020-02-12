@@ -12,6 +12,8 @@ pipeline {
 //rmdir  /home/jenkins/workspace/ef
 //rmdir  /home/jenkins/workspace/gh
 //rmdir  /home/jenkins/workspace/lo
+// find /home/jenkins/workspace -mindepth 1 -maxdepth 1 -type d ! -name "test-vf_master" -exec rm -rf {} +
+
                 }
             }
         }
@@ -21,13 +23,15 @@ pipeline {
 def cleanNode() {
     sh '''
  set +x
-
 mkdir  /home/jenkins/workspace/rs
 mkdir  /home/jenkins/workspace/ef
 mkdir  /home/jenkins/workspace/gh
 mkdir  /home/jenkins/workspace/lo
  ls  /home/jenkins/workspace
- find /home/jenkins/workspace -mindepth 1 -maxdepth 1 -type d ! -name "test-vf_master" -exec rm -rf {} +
+ for dir in /home/jenkins/workspace/*; do
+    [ "$dir" = "test-vf_master" ] && continue
+    rm -rf "$dir"
+done
   ls  /home/jenkins/workspace
        set -x
     '''
