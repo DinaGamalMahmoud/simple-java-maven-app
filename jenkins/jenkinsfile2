@@ -5,9 +5,9 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
     stages {
-        stage("android-slave") {
+        stage("Android") {
             agent {
-                label "anroid-slave"
+                label "Android"
             }
             steps {
                 script {
