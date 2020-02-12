@@ -17,15 +17,7 @@ pipeline {
 def cleanNode() {
     sh '''
  set +x
-mkdir  /home/jenkins/workspace/rs
-mkdir  /home/jenkins/workspace/ef
-mkdir  /home/jenkins/workspace/gh
-mkdir  /home/jenkins/workspace/lo
  ls  /home/jenkins/workspace
- for dir in /home/jenkins/workspace/*; do
-    [ "$dir" = "test-vf_master" ] && continue
-    rm -rf "$dir"
-done
   ls  /home/jenkins/workspace
        set -x
     '''
