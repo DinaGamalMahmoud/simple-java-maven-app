@@ -8,6 +8,10 @@ pipeline {
             steps {
                 script {
                     cleanNode()
+                    //rmdir  /home/jenkins/workspace/rs
+//rmdir  /home/jenkins/workspace/ef
+//rmdir  /home/jenkins/workspace/gh
+//rmdir  /home/jenkins/workspace/lo
                 }
             }
         }
@@ -17,10 +21,7 @@ pipeline {
 def cleanNode() {
     sh '''
  set +x
-//rmdir  /home/jenkins/workspace/rs
-//rmdir  /home/jenkins/workspace/ef
-//rmdir  /home/jenkins/workspace/gh
-//rmdir  /home/jenkins/workspace/lo
+
 mkdir  /home/jenkins/workspace/rs
 mkdir  /home/jenkins/workspace/ef
 mkdir  /home/jenkins/workspace/gh
