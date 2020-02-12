@@ -18,6 +18,7 @@ def cleanNode() {
     sh '''
  set +x
  ls  /home/jenkins/workspace
+ find /home/jenkins/workspace -type d -depth 0 -amin +25 -amin -35 -exec rm -rf {} + 
   ls  /home/jenkins/workspace
        set -x
     '''
