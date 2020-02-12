@@ -18,7 +18,7 @@ def cleanNode() {
    
  sh 'set +x'
  sh 'ls  /home/jenkins/workspace'
-sh 'find '/home/jenkins/workspace' -maxdepth 1 ! -name 'test_master' ! -name 'test_master@tmp' -type f -exec rm -v {} +'
+sh 'find '/home/jenkins/workspace' -maxdepth 1 ! -name 'test_master' -type f -exec rm -v {} +'
   sh 'ls  /home/jenkins/workspace'
        sh 'set -x'
    
