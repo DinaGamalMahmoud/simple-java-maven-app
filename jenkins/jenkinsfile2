@@ -20,7 +20,7 @@ def cleanNode() {
     sh 'mkdir  /home/jenkins/workspace/df'
     sh 'mkdir  /home/jenkins/workspace/jh'
     sh 'mkdir  /home/jenkins/workspace/io'
-    sh 'mkdir  /home/jenkins/workspace'
+    sh 'ls  /home/jenkins/workspace'
     sh 'find /home/jenkins/workspace -mindepth 1 -maxdepth 1 -type d -not -name "test-vf_master" -exec rm -rf {} +'
     sh 'set -x'
 }
