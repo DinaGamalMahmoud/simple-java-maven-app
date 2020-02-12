@@ -1,0 +1,25 @@
+pipeline {
+    agent none
+    options {
+        disableConcurrentBuilds()
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
+    stages {
+        stage("android-slave") {
+            agent {
+                label "anroid-slave"
+            }
+            steps {
+                script {
+                    cleanNode()
+                }
+            }
+        }
+    }
+}
+
+def cleanNode() {
+    sh 'set +x'
+    sh 'find /home/jenkins/workspace -mindepth 1 -maxdepth 1 -type d -not \( -name "Android-Clean-Space_master" \) -exec rm -rf {} +'
+    sh 'set -x'
+}
